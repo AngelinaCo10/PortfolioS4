@@ -1,0 +1,72 @@
+body,
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.with-background {
+    background-image: url("../images/Logo_Background.svg");
+    min-height: 100vh;
+    /* zorgt dat de body altijd volle hoogte heeft */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: clamp(300px, 20vw, 300px);
+    /* Bepaald grootte van logo */
+    background-color: rgba(232, 230, 230, 0.514);
+    /* witte waas */
+    background-blend-mode: lighten;
+    /* of overlay, multiply, screen */
+}
+
+/* Navigatiebalk */
+
+.site-nav {
+    margin-top: 5px;
+    background-color: rgb(45, 45, 44);
+    width: 70%;
+    height: 52px;
+    display: flex;
+    justify-content: right;
+    justify-self: right;
+    border-top-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    font-family: "playfair display", serif;
+}
+
+.site-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 20px;
+
+
+}
+
+.site-nav li {
+    list-style: none;
+    margin-left: 20px;
+
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: rgb(238, 232, 232);
+    padding: 10px 20px;
+    /* border-bottom: none; */
+        /* border: 1px solid rgb(238, 232, 232);
+    border-radius: 50px; */
+
+}
+
+.site-nav a:hover {
+    background-color: #474744;
+    border-radius: 50px;
+
+}
+
+/* einde navigatiebalk */
