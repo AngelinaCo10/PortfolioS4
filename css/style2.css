@@ -10,11 +10,12 @@ header{
     height: 100vh; */
     /* background-color: black; */
     background-image: url("images/background.png");
-    min-height: 100vh;
+    min-height:100vh;
     /* zorgt dat de body altijd volle hoogte heeft */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: clamp(300px, 20vw, 300px);
+     position: relative; /* nodig zodat absolute children zich binnen deze section positioneren */
     /* Bepaald grootte van logo */
     background-color: rgba(232, 230, 230, 0.514);
     /* witte waas */
@@ -23,9 +24,43 @@ header{
     z-index: 9999;
 }
 
-/* NAVBAR */
+     /* Zorg dat de inline SVG (class="Palmtree1" of "palmtree1") zich als achtergrond gedraagt
+        i.p.v. dat het layout verschuift. Dit haalt het uit de normale document flow. */
+     .Palmtree1,
+     .palmtree1 {
+       position: absolute;
+       right: 2rem; /* afstand vanaf rechterkant, pas aan naar wens */
+       bottom: 0; /* op de onderkant van de sectie */
+      /* responsive grootte: minimaal 300px, groeit met viewport (40vw), max 900px */
+      width: clamp(300px, 40vw, 900px);
+       height: auto;
+       pointer-events: none; /* voorkomt dat de svg klikbaar is of hover gedrag krijgt */
+       z-index: 0; /* onder de inhoud zetten */
+       transform: translateY(5%); /* optionele fijne afstemming */
+     }
 
+     /* Zorg dat de inhoud boven de achtergrond-SVG staat */
+     .greenSection .contents {
+       position: relative;
+       z-index: 1;
+     }
 
+    /* Kleine schermen: verklein of verberg de palmboom zodat layout compact blijft */
+    @media (max-width: 600px) {
+      .Palmtree1,
+      .palmtree1 {
+        width: clamp(180px, 35vw, 400px); /* kleinere min/max voor mobieltjes */
+        right: 1rem;
+        transform: translateY(10%);
+      }
+    }
+
+    /* Als je de palm volledig wilt verbergen op zeer kleine schermen, uncomment hieronder */
+    /*
+    @media (max-width: 420px) {
+      .Palmtree1, .palmtree1 { display: none; }
+    }
+    */
 .navbar {
   display: flex;
   align-items: center;
@@ -181,3 +216,221 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 .typer span:nth-child(14) { animation-delay: 1.4s; }
 
 /* … enzovoort, kun je uitbreiden */
+
+
+/* onder header */
+
+.balk{
+    width: 100%;
+    height: 40px;
+    background-color: #8a8a8a;
+}
+
+.greenSection{
+    height: 100vh;
+  background-color: #A5D2C7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* nodig zodat absolute children zich binnen deze section positioneren */
+}
+
+/* Zorg dat de inline SVG (class="Palmtree1" of "palmtree1") zich als achtergrond gedraagt
+   i.p.v. dat het de layout verschuift. Dit haalt het uit de normale document flow. */
+.Palmtree1,
+.palmtree1, .Palmtree2{
+  position: absolute;
+  right: 0rem; /* afstand vanaf rechterkant, pas aan naar wens */
+  bottom: 0; /* op de onderkant van de sectie */
+  width: 50%; /* pas aan: groter of kleiner (bv. 60%, 800px) */
+  max-width: 900px; /* voorkom dat het te groot wordt op grote schermen */
+  height: auto;
+  pointer-events: none; /* voorkomt dat de svg klikbaar is of hover gedrag krijgt */
+  z-index: 0; /* onder de inhoud zetten */
+  transform: translateY(5%); /* optionele fijne afstemming */
+}
+
+.Palmtree2{
+    left: 0rem;
+}
+
+.bloemfoto{
+    position: absolute;
+    right: 0rem;
+    bottom: -5rem;
+    width: 50%;
+    max-width: 12rem;
+    height: auto;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translateY(5%);
+}
+
+/* Zorg dat de inhoud boven de achtergrond-SVG staat */
+.greenSection .contents {
+  position: relative;
+  z-index: 1;
+}
+
+.contents{
+    /* background-color: thistle; */
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 85.625rem;
+    height: 28.375rem;
+}
+
+.textProjects{
+        /* background-color: rgb(166, 28, 166); */
+        width: 23.0625rem;
+        height: 25rem;
+}
+
+h1{
+    font-family: 'tenor sans';
+    color: #303030;
+}
+
+p{
+    font-family: 'tenor sans';
+    color: #303030;
+}
+
+.arrow{
+    margin-top: 5rem;
+}
+.containerProjectCards{
+    /* background-color: rgb(209, 182, 92); */
+    width: 65rem;
+    height: 30rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2{
+    font-family: 'tenor sans';
+    color: #303030;
+}
+
+.projectCard{
+    background-color: rgb(92, 209, 182);
+    width: 19rem;
+    flex-shrink: 0;
+
+    border-radius: 3.625rem;
+    border: 2px solid #ebe8ea;
+    background: #FFF;
+    box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: start;
+    margin: 1rem;
+}
+
+.projectImage1{
+  width: 100%;          /* laat het beeld de volledige breedte vullen */
+  height: 12rem;        /* vaste hoogte (optioneel) */
+  object-fit: cover;    /* snijdt de afbeelding netjes bij */
+  border-top-left-radius: 3.625rem;  /* afgeronde bovenhoeken */
+  border-top-right-radius: 3.625rem;
+  display: block;    
+}
+
+.projectCard p{
+    padding:  1rem;
+    padding-top: 0;
+        padding-bottom: 0;
+    margin: 0;
+}
+
+.projectCard h2{
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+    /* background-color: tomato; */
+    padding-left: 1rem;
+}
+
+.cardButton{
+    /* margin-left: 1rem; */
+    /* zet de knop altijd naar beneden binnen de flex-kolom */
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 5rem;
+    background-color: #F6DAF4; /* indigo-600 */
+      color: #303030;
+    font-weight: 600;
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: 1ms 0.5ms ease;
+    font-family: 'tenor sans', serif;
+    align-self: center;
+    font-size: 17px;
+  
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  }
+
+  /* Skills Section */
+.skillsSection {
+    height: 100vh;
+    background-color: #f3f3f3;
+        display: flex;
+    justify-content: center;
+    /* align-items: center; */
+
+}
+
+.skillsContent {
+    /* background-color: #9d7068; */
+    width: 85.625rem;
+    height: 35.375rem;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+
+}
+
+.skillsContent h1{ 
+    align-self: start;
+    width: 20%;
+}
+
+.titleSkills{
+    /* background-color: #4f46e5; */
+    justify-self: start;
+}
+.skillsColumns {
+    /* background-color: #4d4746; */
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.skills {
+    /* background-color: #76ebae; */
+    width: 14rem;
+    height: 100%;
+}
+
+.skills h3{
+    font-family: 'playfair display';
+    color: #303030;
+}
+
+h4{
+    font-family: 'playfair display';
+    color: #303030;
+    padding: 0.8rem;
+    background-color: #D0E9E3;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #303030;
+    font-size: 18px;
+}
