@@ -1,0 +1,183 @@
+html, body{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header{
+    /* width: 100%;
+    height: 100vh; */
+    /* background-color: black; */
+    background-image: url("images/background.png");
+    min-height: 100vh;
+    /* zorgt dat de body altijd volle hoogte heeft */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: clamp(300px, 20vw, 300px);
+    /* Bepaald grootte van logo */
+    background-color: rgba(232, 230, 230, 0.514);
+    /* witte waas */
+    background-blend-mode: lighten;
+    /* of overlay, multiply, screen */
+    z-index: 9999;
+}
+
+/* NAVBAR */
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* verdeelt links-midden-rechts */
+  padding: 0rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  background-color :#f5f5f5;
+  font-family: 'tenor sans';
+  color: #303030;
+}
+
+/* Logo links */
+.navbar-links-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Midden */
+.navbar-links-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items:center;
+}
+
+/* Rechts */
+.navbar-links-rechts {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: center;
+}
+.contact{
+        background-color: #F6DAF4;
+    padding: 0.5rem;
+    border-radius: 1.875rem;
+    
+}
+
+/* Algemene link styling */
+.navbar a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #303030;
+  transition: color 0.2s ease;
+  font-family: 'tenor sans';
+}
+
+.navbar a:hover {
+  color: #4f46e5;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+}
+
+.logo-img{
+    height: 50px;
+    width: 50px;
+    margin-top: -10px;
+}
+img{
+    height:70px;
+    width: 70px;
+}
+
+/* HEADER */
+
+.header {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: var(--background);
+}
+
+.header-title {
+  font-size: 3rem;
+  color: var(--foreground);
+  margin: 1rem;
+color: #303030;
+ font-size: 70px;
+ font-family: Playfair Display;
+ font-weight: 400;
+ word-wrap: break-word;
+ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-description {
+    color: #303030;
+    font-size: 24px;
+    font-family: 'Tenor Sans';
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.header-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #F6DAF4; /* indigo-600 */
+    color: #303030;
+  font-weight: 600;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: 1ms 0.5ms ease;
+  border-radius: 1.875rem;
+  font-family: 'tenor sans', serif;
+
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.header-button:hover {
+  background-color: #e8d1e6; /* indigo-700 */
+}
+
+.typer span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(0.2em);
+  animation: fadeIn 0.05s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* elke letter iets later laten verschijnen */
+.typer span:nth-child(1)  { animation-delay: 0.1s; }
+.typer span:nth-child(2)  { animation-delay: 0.2s; }
+.typer span:nth-child(3)  { animation-delay: 0.3s; }
+.typer span:nth-child(4)  { animation-delay: 0.4s; }
+.typer span:nth-child(5)  { animation-delay: 0.5s; }
+.typer span:nth-child(6)  { animation-delay: 0.6s; }
+.typer span:nth-child(7)  { animation-delay: 0.7s; }
+.typer span:nth-child(8)  { animation-delay: 0.8s; }
+.typer span:nth-child(9)  { animation-delay: 0.9s; }
+.typer span:nth-child(10) { animation-delay: 1.0s; }
+.typer span:nth-child(11) { animation-delay: 1.1s; }
+.typer span:nth-child(12) { animation-delay: 1.2s; }
+.typer span:nth-child(13) { animation-delay: 1.3s; }
+.typer span:nth-child(14) { animation-delay: 1.4s; }
+
+/* … enzovoort, kun je uitbreiden */

@@ -70,3 +70,14 @@ html {
 }
 
 /* einde navigatiebalk */
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.95; }
+}
+.pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+
+/* home.html styling */
