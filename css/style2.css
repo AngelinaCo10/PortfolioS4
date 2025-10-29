@@ -327,6 +327,21 @@ h2{
     overflow: hidden;
     align-items: start;
     margin: 1rem;
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    will-change: transform;
+}
+
+/* tilt up a bit on hover */
+.projectCard:hover {
+  transform: translateY(-12px) rotate(-2deg);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+/* reopen block so the remaining declarations stay valid */
+.projectCard{
+transform: translateY(1);
+
 }
 
 .projectImage1{
@@ -374,9 +389,14 @@ h2{
   cursor: pointer;
   }
 
+  .cardButton:hover {
+  background-color: #e8d1e6; /* indigo-700 */
+}
+
+
   /* Skills Section */
 .skillsSection {
-    height: 100vh;
+    height: 80vh;
     background-color: #f3f3f3;
         display: flex;
     justify-content: center;
@@ -433,4 +453,56 @@ h4{
     justify-content: center;
     border: 1px solid #303030;
     font-size: 18px;
+}
+
+/* FOOTER */
+
+footer{
+    background-color: #8a8a8a;
+    /* text-align: center; */
+    /* padding: 3rem; */
+    height: 10rem;
+    font-family: 'tenor sans';
+    margin: 0;
+    padding: 0;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* verbergt alles wat buiten de container valt */
+
+}
+
+footer h1{
+    padding-top: 2rem;
+    /* padding-left: 4.5rem; */
+    margin: 0;
+    color: #f3f3f3;
+}
+
+footer p{
+    /* padding-left: 4.5rem; */
+    margin: 0;
+    color: #f3f3f3
+}
+
+.footerContainer{
+    /* background-color: #F6DAF4; */
+    width: 90%;
+    height: 100%;
+}
+
+.footerImages{
+    width: 6rem;
+    height: 6rem;
+    max-width: 100%;
+    object-fit: contain; /* schaalt de afbeelding binnen de gegeven box zonder vervormen */
+    flex-shrink: 0; /* voorkomt dat afbeeldingen krimpen als ruimte beperkt is */
+  /* Kleur aanpassen (externe SVG via <img>): gebruik filter om van zwart naar lichtgrijs te gaan */
+  -webkit-filter: invert(100%) brightness(96%); /* tweak brightness voor exacte toon */
+  filter: invert(100%) brightness(96%);
+}
+
+/* Kleine schermen: maak footer afbeeldingen kleiner zodat ze niet de footer vergroten */
+@media (max-width: 600px) {
+  .footerImages { width: 3rem; height: 3rem; }
 }
