@@ -17,11 +17,10 @@ header{
     background-size: clamp(300px, 20vw, 300px);
      position: relative; /* nodig zodat absolute children zich binnen deze section positioneren */
     /* Bepaald grootte van logo */
-    background-color: rgba(232, 230, 230, 0.514);
+    /* background-color: rgba(232, 230, 230, 0.514); */
     /* witte waas */
     background-blend-mode: lighten;
     /* of overlay, multiply, screen */
-    z-index: 9999;
 }
 
      /* Zorg dat de inline SVG (class="Palmtree1" of "palmtree1") zich als achtergrond gedraagt
@@ -73,6 +72,8 @@ header{
   background-color :#f5f5f5;
   font-family: 'tenor sans';
   color: #303030;
+  z-index: 9999;
+  background-color: #fefefe;
 }
 
 /* Logo links */
@@ -91,6 +92,11 @@ header{
   align-items:center;
 }
 
+.navbar-links-center a:hover {
+    transform: translateY(-5px) rotate(-0deg);
+    transition: all 0.3s ease-in-out;
+}
+
 /* Rechts */
 .navbar-links-rechts {
   flex: 1;
@@ -99,11 +105,22 @@ header{
   gap: 1.5rem;
   align-items: center;
 }
+
+.navbar-links-rechts a:hover{
+    transform:  translateY(-5px) rotate(-0deg) ;
+    transition: all 0.3s ease-in-out;
+
+}
 .contact{
-        background-color: #F6DAF4;
+    background-color: #F6DAF4;
     padding: 0.5rem;
     border-radius: 1.875rem;
-    
+}
+
+.contact:hover{
+        transform:  translateY(-5px) rotate(-0deg) ;
+    transition: all 0.3s ease-in-out;
+
 }
 
 /* Algemene link styling */
@@ -142,7 +159,7 @@ img{
 .header {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: var(--background);
+  /* background-color: var(--background); */
 }
 
 .header-title {
@@ -174,7 +191,7 @@ color: #303030;
   font-weight: 600;
   border-radius: 2rem;
   text-decoration: none;
-  transition: 1ms 0.5ms ease;
+  /* transition: 1ms 0.5ms ease; */
   border-radius: 1.875rem;
   font-family: 'tenor sans', serif;
 
@@ -183,6 +200,10 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
 .header-button:hover {
   background-color: #e8d1e6; /* indigo-700 */
+    transform:  translateY(-5px) rotate(-0deg) ;
+    transition: all 0.3s ease-in-out;
+  /* box-shadow: 0 12px 20px rgba(0,0,0,0.18); */
+
 }
 
 .typer span {
@@ -254,16 +275,22 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     left: 0rem;
 }
 
-.bloemfoto{
+.bloemfoto, .bloemfoto2{
     position: absolute;
     right: 0rem;
-    bottom: -5rem;
+    bottom: -10rem;
     width: 50%;
     max-width: 12rem;
     height: auto;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 1000;
     transform: translateY(5%);
+}
+
+.bloemfoto2{
+    left: 0rem;
+    bottom: -57rem;
+
 }
 
 /* Zorg dat de inhoud boven de achtergrond-SVG staat */
@@ -273,18 +300,24 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .contents{
-    /* background-color: thistle; */
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    width: 85.625rem;
-    height: 28.375rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1360px; /* behoud breedte op grote schermen */
+  height: auto; /* laat inhoud de hoogte bepalen */
+  gap: 1.5rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* zorgt dat items op kleinere schermen naar een nieuwe regel gaan */
 }
 
 .textProjects{
-        /* background-color: rgb(166, 28, 166); */
-        width: 23.0625rem;
-        height: 25rem;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  flex: 0 0 auto;
+  padding: 1rem;
 }
 
 h1{
@@ -301,11 +334,12 @@ p{
     margin-top: 5rem;
 }
 .containerProjectCards{
-    /* background-color: rgb(209, 182, 92); */
-    width: 65rem;
-    height: 30rem;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; /* laat cards doorlopen naar volgende regel op small screens */
 }
 
 h2{
@@ -313,22 +347,39 @@ h2{
     color: #303030;
 }
 
-.projectCard{
-    background-color: rgb(92, 209, 182);
-    width: 19rem;
-    flex-shrink: 0;
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+  .contents { padding: 1.5rem; gap: 1rem; }
+  .containerProjectCards { max-width: 100%; }
+  .projectCard { width: calc(50% - 0.5rem); }
+  .header-title { font-size: 48px; }
+}
 
-    border-radius: 3.625rem;
-    border: 2px solid #ebe8ea;
-    background: #FFF;
-    box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    align-items: start;
-    margin: 1rem;
-    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-    will-change: transform;
+@media (max-width: 600px) {
+  .contents { flex-direction: column; align-items: center; }
+  .textProjects { max-width: 95%; }
+  .containerProjectCards { display: flex; flex-direction: column; align-items: center; }
+  .projectCard { width: 95%; }
+  .header-title { font-size: 36px; }
+  .header-description { font-size: 16px; }
+  .navbar-links-center { gap: 0.5rem; }
+  .logo-img { height: 40px; width: 40px; margin-top: 0; }
+}
+
+.projectCard{
+  background-color: #FFF;
+  width: calc(33.333% - 1rem);
+  min-width: 220px;
+  border-radius: 2rem;
+  border: 2px solid #ebe8ea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 /* tilt up a bit on hover */
@@ -345,12 +396,12 @@ transform: translateY(1);
 }
 
 .projectImage1{
-  width: 100%;          /* laat het beeld de volledige breedte vullen */
-  height: 12rem;        /* vaste hoogte (optioneel) */
-  object-fit: cover;    /* snijdt de afbeelding netjes bij */
-  border-top-left-radius: 3.625rem;  /* afgeronde bovenhoeken */
-  border-top-right-radius: 3.625rem;
-  display: block;    
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  display: block;
 }
 
 .projectCard p{
